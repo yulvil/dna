@@ -1,7 +1,16 @@
-// Converts
-//    GEDmatch Matching Segment Search v2.1.2 HTML table
-// into
-//    csv or tsv textarea
+// ==UserScript==
+// @name         GEDmatch Matching Segment Search - V2.1.2
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  Converts GEDmatch Matching Segment Search v2.1.2 HTML table into csv or tsv textarea
+// @author       yulvil
+// @match        https://www.gedmatch.com/fcgi-bin/seg_srch2c3.fcgi?*
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
 function convert(sep) {
 	var arr = /Kit:\s*(\w+)\s*\((\w+)\)\s*\(([^)]+)\)/.exec(document.body.innerHTML);
 	var kit1 = arr[1];
@@ -33,3 +42,5 @@ function convert(sep) {
 
 convert(',');
 convert('\t');
+
+})();
